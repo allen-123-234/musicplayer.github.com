@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP3 Player</title>
+    <style>
+        /* 在這裡添加 CSS 樣式 */
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .player-container {
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        audio {
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        /* 播放按鈕樣式 */
+        audio::-webkit-media-controls-play-button,
+        audio::-webkit-media-controls-pause-button,
+        audio::-webkit-media-controls-play-button-container,
+        audio::-webkit-media-controls-mute-button,
+        audio::-webkit-media-controls-volume-slider {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        /* 進度條樣式 */
+        input[type="range"] {
+            width: 100%;
+            margin-top: 10px;
+            height: 5px;
+            appearance: none;
+            background-color: #ecf0f1;
+            outline: none;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        input[type="range"]:hover {
+            opacity: 1;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #3498db;
+            cursor: pointer;
+        }
+
+        /* 進度條顏色 */
+        input[type="range"]::-webkit-slider-runnable-track {
+            height: 5px;
+            background-color: #3498db;
+        }
+
+        /* 歌詞按鈕樣式 */
+        .lyrics-button {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="player-container">
+        <audio id="audioPlayer" controls>
+            <source src="崇拜 - Fish Leong (youtube).mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+
+        <button class="lyrics-button" onclick="toggleLyrics()">顯示歌詞</button>
+        <div id="lyricsContainer" style="display: none;">
+            <!-- 歌詞內容放在這裡 -->
+            你的姿態 你的青睞 我存在在你的存在
+            你以為愛 就是被愛 你揮霍了我的崇拜
+            
+            我活了 我愛了 我都不管了 心愛到瘋了恨到算了就好了
+            可能的 可以的 真的可惜了 幸福好不容易怎麼你卻不敢了呢
+            
+            我還以為我們能 不同於別人
+            我還以為不可能的 不會不可能
+            
+            你的姿態 你的青睞 我存在在你的存在
+            你以為愛 就是被愛 你揮霍了我的崇拜
+            
+            我活了 我愛了 我都不管了 心愛到瘋了恨到算了就好了
+            可能的 可以的 真的可惜了 幸福好不容易怎麼你卻不敢了呢
+            
+            我還以為我們能 不同於別人
+            我還以為不可能的 不會不可能
+            
+            你的姿態 你的青睞 我存在在你的存在
+            你以為愛 就是被愛 你揮霍了我的崇拜
+            
+            風箏有風海豚有海 我存在在我的存在
+            
+            所以明白 所以離開 所以不再為愛而愛 自己存在 在你之外
+        </div>
+    </div>
+
+    <script>
+        // 在這裡添加 JavaScript 代碼
+        function toggleLyrics() {
+            const lyricsContainer = document.getElementById('lyricsContainer');
+            const lyricsButton = document.querySelector('.lyrics-button');
+
+            if (lyricsContainer.style.display === 'none') {
+                lyricsContainer.style.display = 'block';
+                lyricsButton.innerText = '關閉歌詞';
+            } else {
+                lyricsContainer.style.display = 'none';
+                lyricsButton.innerText = '顯示歌詞';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const audioPlayer = document.getElementById('audioPlayer');
+
+            // 自定義功能
+        });
+    </script>
+</body>
+</html>

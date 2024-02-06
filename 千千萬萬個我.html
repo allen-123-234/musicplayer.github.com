@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP3 Player</title>
+    <style>
+        /* 在這裡添加 CSS 樣式 */
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .player-container {
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        audio {
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        /* 播放按鈕樣式 */
+        audio::-webkit-media-controls-play-button,
+        audio::-webkit-media-controls-pause-button,
+        audio::-webkit-media-controls-play-button-container,
+        audio::-webkit-media-controls-mute-button,
+        audio::-webkit-media-controls-volume-slider {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        /* 進度條樣式 */
+        input[type="range"] {
+            width: 100%;
+            margin-top: 10px;
+            height: 5px;
+            appearance: none;
+            background-color: #ecf0f1;
+            outline: none;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        input[type="range"]:hover {
+            opacity: 1;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #3498db;
+            cursor: pointer;
+        }
+
+        /* 進度條顏色 */
+        input[type="range"]::-webkit-slider-runnable-track {
+            height: 5px;
+            background-color: #3498db;
+        }
+
+        /* 歌詞按鈕樣式 */
+        .lyrics-button {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="player-container">
+        <audio id="audioPlayer" controls>
+            <source src="就算你殺了一個我還有 千千萬萬個我Weenomenon 我們都是黃明志 2023.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+
+        <button class="lyrics-button" onclick="toggleLyrics()">顯示歌詞</button>
+        <div id="lyricsContainer" style="display: none;">
+            <!-- 歌詞內容放在這裡 -->
+            除了你還有我 還有我還有我
+千千萬萬個我 還有我還有我
+飛蛾衝撞烈火 去爭奪 像個英雄
+就要轟隆隆 一起昂首重返光榮
+
+不願再忍受 不願再低頭
+不願再被他踩在腳下不還手
+拒絕再沉默 拒絕再退後
+當鐵拳已經重重錘在我的頭
+
+路上匆匆行屍走肉
+有人變成了骷髏 有人頑抗辯駁
+我願化作燎原之火
+You Know You’re Not Alone
+
+除了你還有我 還有我還有我
+千千萬萬個我 還有我還有我
+當決心要打破 不退縮 不怕墜落
+給它轟隆隆 抱緊自由決不會放手
+
+飛蛾衝撞烈火 去爭奪 像個英雄
+就要轟隆隆 一起昂首重返光榮
+
+聽見太多噓聲和嘲諷 笑我像個徒勞的蛆蟲
+歌功頌德都乘龍跨鳳 跪下早已名成利就
+千刀萬剮也不覺得痛 腎上腺素帶我往前衝
+黑暗之中放大了瞳孔 逐個擊破 搶攻
+
+腳鐐太重無力掙脫
+漸漸習慣了服從 以為海闊天空
+忍氣吞聲已到了頭
+還怕誰是哪根蔥
+
+除了你還有我 還有我還有我
+千千萬萬個我 還有我還有我
+當決心要打破 不退縮 不怕墜落
+給它轟隆隆 抱緊自由決不會放手
+
+飛蛾衝撞烈火 去爭奪 像個英雄
+就要轟隆隆 一起昂首重返光榮
+
+除了你還有我 還有我還有我
+千千萬萬個我 還有我還有我
+當決心要打破 不退縮 不怕墜落
+給它轟隆隆 抱緊自由決不會放手
+
+飛蛾衝撞烈火 去爭奪 像個英雄
+就要轟隆隆 一起昂首重返光榮
+        </div>
+    </div>
+
+    <script>
+        // 在這裡添加 JavaScript 代碼
+        function toggleLyrics() {
+            const lyricsContainer = document.getElementById('lyricsContainer');
+            const lyricsButton = document.querySelector('.lyrics-button');
+
+            if (lyricsContainer.style.display === 'none') {
+                lyricsContainer.style.display = 'block';
+                lyricsButton.innerText = '關閉歌詞';
+            } else {
+                lyricsContainer.style.display = 'none';
+                lyricsButton.innerText = '顯示歌詞';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const audioPlayer = document.getElementById('audioPlayer');
+
+            // 自定義功能
+        });
+    </script>
+</body>
+</html>

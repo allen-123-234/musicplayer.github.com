@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP3 Player</title>
+    <style>
+        /* 在這裡添加 CSS 樣式 */
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .player-container {
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        audio {
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        /* 播放按鈕樣式 */
+        audio::-webkit-media-controls-play-button,
+        audio::-webkit-media-controls-pause-button,
+        audio::-webkit-media-controls-play-button-container,
+        audio::-webkit-media-controls-mute-button,
+        audio::-webkit-media-controls-volume-slider {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        /* 進度條樣式 */
+        input[type="range"] {
+            width: 100%;
+            margin-top: 10px;
+            height: 5px;
+            appearance: none;
+            background-color: #ecf0f1;
+            outline: none;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        input[type="range"]:hover {
+            opacity: 1;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #3498db;
+            cursor: pointer;
+        }
+
+        /* 進度條顏色 */
+        input[type="range"]::-webkit-slider-runnable-track {
+            height: 5px;
+            background-color: #3498db;
+        }
+
+        /* 歌詞按鈕樣式 */
+        .lyrics-button {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="player-container">
+        <audio id="audioPlayer" controls>
+            <source src="Chang Yu Sheng 張雨生 - 和天一樣高 (He Tian Yi yang Gao)【字幕歌词】Chinese Pinyin Lyrics  I  1988年《天天想你》專輯。 - NKstudio73 (youtube).mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+
+        <button class="lyrics-button" onclick="toggleLyrics()">顯示歌詞</button>
+        <div id="lyricsContainer" style="display: none;">
+            <!-- 歌詞內容放在這裡 -->
+            裝滿自信發動引擎 向夢想直線飛行
+追過時光 超越自己 在希望之中衝擊
+我有一顆比任何人 都還要狂熱的心
+願意接受任何一種 更不平凡的邀請
+
+我要和天一樣高 尋找一種美麗的情操
+我要和天一樣高 一樣高 我的未來才能看得到
+
+
+
+帶著勇氣毫不遲疑 向夢想加速前進
+撥開烏雲 看見自己 竟然如此的嶄新
+我要擁有比任何人 都更絢亮的生命
+願意接受任何一種 最不平凡的邀請
+
+我要和天一樣高 給你一個特別的擁抱
+我要和天一樣高 一樣高 我知道我會做得更好
+
+我要和天一樣高 尋找一種美麗的情操
+我要和天一樣高 一樣高 我的未來才能看得到
+我要和天一樣高 給你一個特別的擁抱
+我要和天一樣高 一樣高 我知道我會做得更好
+    </div>
+
+    <script>
+        // 在這裡添加 JavaScript 代碼
+        function toggleLyrics() {
+            const lyricsContainer = document.getElementById('lyricsContainer');
+            const lyricsButton = document.querySelector('.lyrics-button');
+
+            if (lyricsContainer.style.display === 'none') {
+                lyricsContainer.style.display = 'block';
+                lyricsButton.innerText = '關閉歌詞';
+            } else {
+                lyricsContainer.style.display = 'none';
+                lyricsButton.innerText = '顯示歌詞';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const audioPlayer = document.getElementById('audioPlayer');
+
+            // 自定義功能
+        });
+    </script>
+</body>
+</html>

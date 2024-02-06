@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP3 Player</title>
+    <style>
+        /* 在這裡添加 CSS 樣式 */
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .player-container {
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        audio {
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        /* 播放按鈕樣式 */
+        audio::-webkit-media-controls-play-button,
+        audio::-webkit-media-controls-pause-button,
+        audio::-webkit-media-controls-play-button-container,
+        audio::-webkit-media-controls-mute-button,
+        audio::-webkit-media-controls-volume-slider {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        /* 進度條樣式 */
+        input[type="range"] {
+            width: 100%;
+            margin-top: 10px;
+            height: 5px;
+            appearance: none;
+            background-color: #ecf0f1;
+            outline: none;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        input[type="range"]:hover {
+            opacity: 1;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #3498db;
+            cursor: pointer;
+        }
+
+        /* 進度條顏色 */
+        input[type="range"]::-webkit-slider-runnable-track {
+            height: 5px;
+            background-color: #3498db;
+        }
+
+        /* 歌詞按鈕樣式 */
+        .lyrics-button {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="player-container">
+        <audio id="audioPlayer" controls>
+            <source src="伍佰 Wu BaiChina BlueLast DanceOfficial Music Video(HD).mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+
+        <button class="lyrics-button" onclick="toggleLyrics()">顯示歌詞</button>
+        <div id="lyricsContainer" style="display: none;">
+            <!-- 歌詞內容放在這裡 -->
+            所以暫時將你眼睛閉了起來
+            黑暗之中漂浮我的期待
+            平靜臉孔映著繽紛色彩
+            讓人好不疼愛
+            你可以隨著我的步伐輕輕柔柔的踩
+            將美麗的回憶慢慢重來
+            突然之間浪漫無法釋懷
+            明天我要離開
+            你給的愛 無助的等待
+            是否我一個人走 想聽見你的挽留
+            春風秋雨飄飄落落只為寂寞
+            你給的愛 甜美的傷害
+            深深的鎖住了我 隱藏不住的脆弱
+            氾濫河水將我冲向你的心頭 不停流
+            所以暫時將你眼睛閉了起來
+            可以慢慢滑進我的心懷
+            舞池中的人群漸漸散開
+            應該就是現在
+            你給的愛 無助的等待
+            是否我一個人走 想聽見你的挽留
+            春風秋雨飄飄落落只為寂寞
+            你給的愛 甜美的傷害
+            想問問你的心中 不願面對的不懂
+            明天之後不知道面前的你是否依然愛我
+        </div>
+    </div>
+
+    <script>
+        // 在這裡添加 JavaScript 代碼
+        function toggleLyrics() {
+            const lyricsContainer = document.getElementById('lyricsContainer');
+            const lyricsButton = document.querySelector('.lyrics-button');
+
+            if (lyricsContainer.style.display === 'none') {
+                lyricsContainer.style.display = 'block';
+                lyricsButton.innerText = '關閉歌詞';
+            } else {
+                lyricsContainer.style.display = 'none';
+                lyricsButton.innerText = '顯示歌詞';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const audioPlayer = document.getElementById('audioPlayer');
+
+            // 自定義功能
+        });
+    </script>
+</body>
+</html>

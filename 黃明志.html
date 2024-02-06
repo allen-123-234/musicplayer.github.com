@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>滾動卷軸</title>
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        .scroll-container {
+            width: 100%;
+            height: 100vh;
+            overflow-y: scroll;
+        }
+
+        .content {
+            padding: 20px;
+            /* 在這裡設定內容的樣式 */
+        }
+
+        .content a img {
+            width: 120px; /* 設定圖片寬度為20px */
+            height: 80px; /* 設定圖片高度為20px */
+            display: block; /* 清除圖片底部的空白間隙 */
+            margin-bottom: 20px; /* 設定圖片之間的間距 */
+        }
+    </style>
+</head>
+<body>
+    <div class="scroll-container" id="scrollContainer">
+        <div class="content">
+            <!-- 在這裡放入你的內容，例如圖片連結 -->
+            <a href="十個男人.html" target="_blank">
+                <img src="十個男人.jpg" alt="圖片1">
+            </a>
+            <a href="慢慢做起來.html" target="_blank">
+                <img src="慢慢做起來.jpg" alt="圖片2">
+            </a>
+            <a href="龍的傳人.html" target="_blank">
+                <img src="龍的傳人.jpg" alt="圖片2">
+            </a>
+            <a href="千千萬萬個我.html" target="_blank">
+                <img src="千千萬萬個我.jpg" alt="圖片2">
+            </a> 
+            <a href="泰國情歌.html" target="_blank">
+                <img src="泰國情歌.jpg" alt="圖片2">
+            </a>
+            <a href="玻璃心.html" target="_blank">
+                <img src="玻璃心.jpg" alt="圖片2">
+            </a>
+          
+            
+            <!-- 在這裡放入你的內容 -->
+        </div>
+    </div>
+
+    <script>
+        // 獲取滾動區域元素
+        var scrollContainer = document.getElementById("scrollContainer");
+
+        // 添加滾動事件監聽器
+        scrollContainer.addEventListener("scroll", function() {
+            // 在這裡可以根據滾動的位置執行相應的操作，例如載入更多圖片
+            console.log("滾動中...");
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP3 Player</title>
+    <style>
+        /* 在這裡添加 CSS 樣式 */
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .player-container {
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        audio {
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        /* 播放按鈕樣式 */
+        audio::-webkit-media-controls-play-button,
+        audio::-webkit-media-controls-pause-button,
+        audio::-webkit-media-controls-play-button-container,
+        audio::-webkit-media-controls-mute-button,
+        audio::-webkit-media-controls-volume-slider {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        /* 進度條樣式 */
+        input[type="range"] {
+            width: 100%;
+            margin-top: 10px;
+            height: 5px;
+            appearance: none;
+            background-color: #ecf0f1;
+            outline: none;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        input[type="range"]:hover {
+            opacity: 1;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #3498db;
+            cursor: pointer;
+        }
+
+        /* 進度條顏色 */
+        input[type="range"]::-webkit-slider-runnable-track {
+            height: 5px;
+            background-color: #3498db;
+        }
+
+        /* 歌詞按鈕樣式 */
+        .lyrics-button {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="player-container">
+        <audio id="audioPlayer" controls>
+            <source src="黃明志 Ft. 吳宗憲 慢慢做起來Weenomenon 2023.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+
+        <button class="lyrics-button" onclick="toggleLyrics()">顯示歌詞</button>
+        <div id="lyricsContainer" style="display: none;">
+            <!-- 歌詞內容放在這裡 -->
+            有人別出心裁 有人謬想天開
+            標新立異的人渴望舞台 迫不及待
+            沒有與生俱來 只能期盼苦盡甘來
+            到處去撞牆灰頭土臉 必須忍耐
+            坦誠相待 也會有人拒之門外
+            見利忘義的朋友離開 不瞅不睬
+            人生百態 歷經太多的無奈
+            從不覺得自己被打敗
+            心態沒崩壞 相信總會有人明白
+            那就慢慢做起來 一步一步來
+            若不是天才 就慢慢灌溉
+            跌倒慢慢站起來 推翻再重來
+            不害怕挫敗 最怕在原地等待
+            這個城市太多妖魔鬼怪
+            彷彿每個人都各懷鬼胎
+            見利忘義背叛都是常態
+            不須憤慨 大驚小怪
+            為了夢想獨自飄洋過海
+            烏煙瘴氣來回風吹日曬
+            四處碰釘碰了一鼻子灰
+            酸甜苦辣 自己明白
+            原來 為了去證明有多麼地無可取代
+            犧牲了太多 不堪回首 也甩不開
+            降低姿態 放下身段 It's Alright
+            再多困難再多的阻礙
+            都百戰不殆 就要讓你另眼相待
+            那就慢慢做起來 一步一步來
+            若不是天才 就慢慢灌溉
+            跌倒慢慢站起來 推翻再重來
+            不害怕挫敗 最怕在原地等待
+            總有太多意外 從天上掉下來
+            從不敢鬆懈倦怠 多用腦袋
+            那就慢慢做起來 一步一步來
+            若不是天才 就慢慢灌溉
+            跌倒慢慢站起來 推翻再重來
+            不害怕挫敗 最怕在原地等待
+            慢慢做起來 一步一步來
+            若不是天才 就慢慢灌溉
+            跌倒慢慢站起來 推翻再重來
+            不害怕挫敗 最怕在原地等待
+            有人自願離開 有人會被淘汰
+            現實將太多雄心壯志 全都活埋
+            手裡握著爛牌 就翻轉命運的安排
+            有信念才能夠 改變未來
+        </div>
+    </div>
+
+    <script>
+        // 在這裡添加 JavaScript 代碼
+        function toggleLyrics() {
+            const lyricsContainer = document.getElementById('lyricsContainer');
+            const lyricsButton = document.querySelector('.lyrics-button');
+
+            if (lyricsContainer.style.display === 'none') {
+                lyricsContainer.style.display = 'block';
+                lyricsButton.innerText = '關閉歌詞';
+            } else {
+                lyricsContainer.style.display = 'none';
+                lyricsButton.innerText = '顯示歌詞';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const audioPlayer = document.getElementById('audioPlayer');
+
+            // 自定義功能
+        });
+    </script>
+</body>
+</html>
