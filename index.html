@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>圖片橫列</title>
+    <style>
+        .image-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .image-container a {
+            text-decoration: none; /* 取消連結下劃線 */
+            text-align: center;
+            display: block; /* 使整個區塊可點擊 */
+        }
+
+        .image-container img {
+            width: 120px;
+            height: 100px;
+            border-radius: 50%; /* 將圖片設為圓形 */
+            margin-bottom: 5px; /* 圖片和文字之間的距離 */
+        }
+
+        .image-container p {
+            margin: 0; /* 移除段落的預設邊距 */
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <a href="黃明志.html">
+            <img src="黃明志.jpg" alt="圖片1">
+            <p>黃明志</p>
+        </a>
+        <a href="陳奕迅.html">
+            <img src="陳奕迅.jpg" alt="圖片2">
+            <p>陳奕迅</p>
+        </a>
+ <a href="張雨生.html">
+            <img src="張雨生.jpg" alt="圖片5">
+            <p>張雨生</p>
+        </a>
+        <a href="梁靜茹.html">
+            <img src="梁靜茹.jpg" alt="圖片4">
+            <p>梁靜茹</p>
+        </a>
+        <a href="經典歌曲.html">
+            <img src="經典歌曲.png" alt="圖片3">
+            <p>經典歌曲</p>
+        </a>
+    </div>
+</body>
+</html>

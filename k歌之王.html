@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP3 Player</title>
+    <style>
+        /* 在這裡添加 CSS 樣式 */
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .player-container {
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        audio {
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        /* 播放按鈕樣式 */
+        audio::-webkit-media-controls-play-button,
+        audio::-webkit-media-controls-pause-button,
+        audio::-webkit-media-controls-play-button-container,
+        audio::-webkit-media-controls-mute-button,
+        audio::-webkit-media-controls-volume-slider {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        /* 進度條樣式 */
+        input[type="range"] {
+            width: 100%;
+            margin-top: 10px;
+            height: 5px;
+            appearance: none;
+            background-color: #ecf0f1;
+            outline: none;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        input[type="range"]:hover {
+            opacity: 1;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #3498db;
+            cursor: pointer;
+        }
+
+        /* 進度條顏色 */
+        input[type="range"]::-webkit-slider-runnable-track {
+            height: 5px;
+            background-color: #3498db;
+        }
+
+        /* 歌詞按鈕樣式 */
+        .lyrics-button {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="player-container">
+        <audio id="audioPlayer" controls>
+            <source src="陳奕迅 Eason ChanK歌之王(國)[Official MV].mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+
+        <button class="lyrics-button" onclick="toggleLyrics()">顯示歌詞</button>
+        <div id="lyricsContainer" style="display: none;">
+            <!-- 歌詞內容放在這裡 -->
+            我唱得不夠動人 你別皺眉
+            我願意和你約定至死
+            我只想嬉戲唱遊到下世紀
+            請你別嫌我將這煽情奉獻給你
+            還能憑甚麼? 擁抱若未能令你興奮
+            便宜地唱出寫在情歌的性感
+            還能憑甚麼? 要是愛不可感動人
+            俗套的歌詞 煽動你惻忍
+            誰人又相信一世一生這膚淺對白?
+            來吧 送給你叫幾百萬人流淚過的歌
+            如從未聽過誓言如幸福摩天輪
+            才令我因你要呼天叫地 愛愛愛愛那麼多
+            將我漫天心血一一拋到銀河
+            誰是垃圾? 誰不捨我難過? 分一丁目贈我
+            我唱出心裡話時 眼淚會流
+            要是怕難過抱住我手
+            我只得千語萬言放在你心
+            比渴望地老天荒更簡單 未算罕有
+            誰人又相信一世一生這膚淺對白?
+            來吧 送給你叫幾百萬人流淚過的歌
+            如從未聽過誓言如幸福摩天輪
+            才令我因你要呼天叫地 愛愛愛愛那麼多
+            給你用力作20首不捨不棄
+            還附送你愛得過火
+            給你賣力唱20首真心真意
+            米高峰都因我動容
+            無人及我 你怎麼竟然說 K 歌之王是我?
+            我只想跟你未來浸在愛河
+            而你那呵欠絕得不能絕 絕到溶掉我
+        </div>
+    </div>
+
+    <script>
+        // 在這裡添加 JavaScript 代碼
+        function toggleLyrics() {
+            const lyricsContainer = document.getElementById('lyricsContainer');
+            const lyricsButton = document.querySelector('.lyrics-button');
+
+            if (lyricsContainer.style.display === 'none') {
+                lyricsContainer.style.display = 'block';
+                lyricsButton.innerText = '關閉歌詞';
+            } else {
+                lyricsContainer.style.display = 'none';
+                lyricsButton.innerText = '顯示歌詞';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const audioPlayer = document.getElementById('audioPlayer');
+
+            // 自定義功能
+        });
+    </script>
+</body>
+</html>
+

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP3 Player</title>
+    <style>
+        /* 在這裡添加 CSS 樣式 */
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .player-container {
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        audio {
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        /* 播放按鈕樣式 */
+        audio::-webkit-media-controls-play-button,
+        audio::-webkit-media-controls-pause-button,
+        audio::-webkit-media-controls-play-button-container,
+        audio::-webkit-media-controls-mute-button,
+        audio::-webkit-media-controls-volume-slider {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        /* 進度條樣式 */
+        input[type="range"] {
+            width: 100%;
+            margin-top: 10px;
+            height: 5px;
+            appearance: none;
+            background-color: #ecf0f1;
+            outline: none;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        input[type="range"]:hover {
+            opacity: 1;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #3498db;
+            cursor: pointer;
+        }
+
+        /* 進度條顏色 */
+        input[type="range"]::-webkit-slider-runnable-track {
+            height: 5px;
+            background-color: #3498db;
+        }
+
+        /* 歌詞按鈕樣式 */
+        .lyrics-button {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="player-container">
+        <audio id="audioPlayer" controls>
+            <source src="《孤勇者》（《英雄聯盟：雙城之戰》動畫劇集中文主題曲）陳奕迅 Eason Chan [Official MV] - Eason Chan (youtube).mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+
+        <button class="lyrics-button" onclick="toggleLyrics()">顯示歌詞</button>
+        <div id="lyricsContainer" style="display: none;">
+            <!-- 歌詞內容放在這裡 -->
+            都是勇敢的
+            你額頭的傷口 你的不同 你犯的錯
+            都不必隱藏
+            你破舊的玩偶 你的面具 你的自我
+            他們說 要帶著光 馴服每一頭怪獸
+            他們說 要縫好你的傷 沒有人愛小丑
+            為何孤獨不可光榮?
+            人只有不完美 值得歌頌
+            誰說污泥滿身的不算英雄?
+            愛你孤身走暗巷 愛你不跪的模樣
+            愛你對峙過絕望 不肯哭一場
+            愛你破爛的衣裳 卻敢堵命運的槍
+            愛你和我那麼像 缺口都一樣
+            去嗎? 配嗎? 這襤褸的披風
+            戰嗎? 戰啊! 以最卑微的夢
+            致那黑夜中的嗚咽與怒吼
+            誰說站在光裡的才算英雄?
+            他們說 要戒了你的狂 就像擦掉了污垢
+            他們說 要順台階而上 而代價是低頭
+            那就讓我不可乘風
+            你一樣驕傲著 那種孤勇
+            誰說對弈平凡的不算英雄?
+            愛你孤身走暗巷 愛你不跪的模樣
+            愛你對峙過絕望 不肯哭一場
+            愛你破爛的衣裳 卻敢堵命運的槍
+            愛你和我那麼像 缺口都一樣
+            去嗎? 配嗎? 這襤褸的披風
+            戰嗎? 戰啊! 以最卑微的夢
+            致那黑夜中的嗚咽與怒吼
+            誰說站在光裡的才算英雄?
+            你的斑駁與眾不同
+            你的沉默震耳欲聾 (you are the hero)
+            愛你孤身走暗巷 愛你不跪的模樣
+            愛你對峙過絕望 不肯哭一場 (you are the hero)
+            愛你來自於蠻荒 一生不借誰的光
+            你將造你的城邦 在廢墟之上
+            去嗎? 去啊! 以最卑微的夢
+            戰嗎? 戰啊! 以最孤高的夢
+            致那黑夜中的嗚咽與怒吼
+            誰說站在光裡的才算英雄?
+    </div>
+
+    <script>
+        // 在這裡添加 JavaScript 代碼
+        function toggleLyrics() {
+            const lyricsContainer = document.getElementById('lyricsContainer');
+            const lyricsButton = document.querySelector('.lyrics-button');
+
+            if (lyricsContainer.style.display === 'none') {
+                lyricsContainer.style.display = 'block';
+                lyricsButton.innerText = '關閉歌詞';
+            } else {
+                lyricsContainer.style.display = 'none';
+                lyricsButton.innerText = '顯示歌詞';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const audioPlayer = document.getElementById('audioPlayer');
+
+            // 自定義功能
+        });
+    </script>
+</body>
+</html>

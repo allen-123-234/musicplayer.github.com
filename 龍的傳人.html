@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP3 Player</title>
+    <style>
+        /* 在這裡添加 CSS 樣式 */
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .player-container {
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        audio {
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        /* 播放按鈕樣式 */
+        audio::-webkit-media-controls-play-button,
+        audio::-webkit-media-controls-pause-button,
+        audio::-webkit-media-controls-play-button-container,
+        audio::-webkit-media-controls-mute-button,
+        audio::-webkit-media-controls-volume-slider {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        /* 進度條樣式 */
+        input[type="range"] {
+            width: 100%;
+            margin-top: 10px;
+            height: 5px;
+            appearance: none;
+            background-color: #ecf0f1;
+            outline: none;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        input[type="range"]:hover {
+            opacity: 1;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #3498db;
+            cursor: pointer;
+        }
+
+        /* 進度條顏色 */
+        input[type="range"]::-webkit-slider-runnable-track {
+            height: 5px;
+            background-color: #3498db;
+        }
+
+        /* 歌詞按鈕樣式 */
+        .lyrics-button {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="player-container">
+        <audio id="audioPlayer" controls>
+            <source src="要听要快 被禁就听不到了 黃明志 Ft.小熊为你 龙的传人 龙年贺岁新年歌 2024.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+
+        <button class="lyrics-button" onclick="toggleLyrics()">顯示歌詞</button>
+        <div id="lyricsContainer" style="display: none;">
+            <!-- 歌詞內容放在這裡 -->
+            Skrr
+            老鐵們 點讚關注看過來
+            雙擊 666
+            慕洋犬 反賊曱甴都給我進來
+            
+            我們都是 龍的傳人
+            龍蝦 龍眼 龍馬精神
+            人人都是 龍的傳人
+            一輩子的祖國人
+            
+            我們都是 龍的傳人
+            有著我們 Long Long 的根
+            人人都是 龍的傳人
+            五千年來 YYDS
+            
+            遙遠的東方有一群人
+            心在祖國 人在倫敦
+            柬埔寨緬北 Thailand
+            紐約到洛城 都是炎黃子孫
+            
+            香菸一根接著一根
+            每天打電話 打到淩晨
+            聯繫三表弟外甥
+            Call 了全村人 快來加入我們
+            
+            仇日反美 是我的責任 - Fxxk
+            到 YouTube 留言駡假新聞 - False
+            兄弟情深 留島不留人
+            然後都跑去變 Singaporean
+            
+            想尿尿路邊找花盆
+            那叫作文明進化論
+            遙遙領先
+            我買了iPhone
+            過了羅湖帶三箱奶粉
+            那狗日的我最恨 飛過去喝廢水
+            生吞了六盤刺身 - Oishii
+            
+            我們都是 龍的傳人
+            我們最愛 傳給別人
+            龍蝦 龍眼 龍馬精神
+            龍蝦 龍眼 龍馬精神
+            人人都是 龍的傳人
+            不可分隔的一部分
+            一輩子 的祖國人
+            入華夏 我不悔此生
+            
+            我們都是 龍的傳人
+            龍髓湯 龍鬚糖 五龍羹
+            有著我們 Long Long 的根
+            我的龍根 能屈能伸
+            人人都是 龍的傳人
+            皇帝吉祥 謝主隆恩
+            五千年來 YYDS
+            YYDS 永遠的神
+            
+            對面又老又窮B 連海鮮都吃不起
+            就連山上的住民 都是喝黃河水的
+            報告皇帝 首富的錢已經動態清零
+            那些過氣的明星 都跪下去 很努力舔我的幣
+            主席穿上了龍袍
+            暖心的春天又來到
+            我們一起學龍叫
+            恐龍扛狼扛狼扛 - Blue Biu
+            
+            所有愛國的膠膠
+            快來挖呀挖呀挖-大大的
+            整天刷抖音 一邊高潮
+            抓著龍筋 太曖心了
+            注意看 這兩個男人
+            真的太狠了 小帥和喪彪
+            
+            我們都是 龍的傳人
+            龍蝦 龍眼 龍馬精神
+            人人都是 龍的傳人
+            一輩子的祖國人
+            入華夏 我不悔此生
+            
+            我們都是 龍的傳人
+            龍髓湯 龍鬚糖 五龍羹
+            有著我們 Long Long 的根
+            我的龍根 能屈能伸
+            人人都是 龍的傳人
+            皇帝吉祥 謝主隆恩
+            五千年來 永遠的神
+            YYDS 永遠的神
+        </div>
+    </div>
+
+    <script>
+        // 在這裡添加 JavaScript 代碼
+        function toggleLyrics() {
+            const lyricsContainer = document.getElementById('lyricsContainer');
+            const lyricsButton = document.querySelector('.lyrics-button');
+
+            if (lyricsContainer.style.display === 'none') {
+                lyricsContainer.style.display = 'block';
+                lyricsButton.innerText = '關閉歌詞';
+            } else {
+                lyricsContainer.style.display = 'none';
+                lyricsButton.innerText = '顯示歌詞';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const audioPlayer = document.getElementById('audioPlayer');
+
+            // 自定義功能
+        });
+    </script>
+</body>
+</html>

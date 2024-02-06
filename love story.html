@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP3 Player</title>
+    <style>
+        /* 在這裡添加 CSS 樣式 */
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .player-container {
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        audio {
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        /* 播放按鈕樣式 */
+        audio::-webkit-media-controls-play-button,
+        audio::-webkit-media-controls-pause-button,
+        audio::-webkit-media-controls-play-button-container,
+        audio::-webkit-media-controls-mute-button,
+        audio::-webkit-media-controls-volume-slider {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        /* 進度條樣式 */
+        input[type="range"] {
+            width: 100%;
+            margin-top: 10px;
+            height: 5px;
+            appearance: none;
+            background-color: #ecf0f1;
+            outline: none;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        input[type="range"]:hover {
+            opacity: 1;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #3498db;
+            cursor: pointer;
+        }
+
+        /* 進度條顏色 */
+        input[type="range"]::-webkit-slider-runnable-track {
+            height: 5px;
+            background-color: #3498db;
+        }
+
+        /* 歌詞按鈕樣式 */
+        .lyrics-button {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="player-container">
+        <audio id="audioPlayer" controls>
+            <source src="Taylor Swift - Love Story - TaylorSwiftVEVO (youtube).mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+
+        <button class="lyrics-button" onclick="toggleLyrics()">顯示歌詞</button>
+        <div id="lyricsContainer" style="display: none;">
+            <!-- 歌詞內容放在這裡 -->
+            We were both young when I first saw you
+            I close my eyes and the flashback starts
+            I'm standin' there
+            On a balcony in summer air
+            See the lights, see the party, the ball gowns
+            See you make your way through the crowd
+            And say, "Hello"
+            Little did I know
+            That you were Romeo, you were throwin' pebbles
+            And my daddy said, "Stay away from Juliet"
+            And I was cryin' on the staircase
+            Beggin' you, "Please don't go, " and I said
+            Romeo, take me somewhere we can be alone
+            I'll be waiting, all there's left to do is run
+            You'll be the prince and I'll be the princess
+            It's a love story, baby, just say, "Yes"
+            So I sneak out to the garden to see you
+            We keep quiet, 'cause we're dead if they knew
+            So close your eyes
+            Escape this town for a little while, oh oh
+            'Cause you were Romeo, I was a scarlet letter
+            And my daddy said, "Stay away from Juliet"
+            But you were everything to me
+            I was beggin' you, "Please don't go, " and I said
+            Romeo, take me somewhere we can be alone
+            I'll be waiting, all there's left to do is run
+            You'll be the prince and I'll be the princess
+            It's a love story, baby, just say, "Yes"
+            Romeo, save me, they're tryna tell me how to feel
+            This love is difficult, but it's real
+            Don't be afraid, we'll make it out of this mess
+            It's a love story, baby, just say, "Yes"
+            Oh, oh
+            I got tired of waiting
+            Wonderin' if you were ever comin' around
+            My faith in you was fading
+            When I met you on the outskirts of town, and I said
+            Romeo, save me, I've been feeling so alone
+            I keep waiting for you, but you never come
+            Is this in my head? I don't know what to think
+            He knelt to the ground and pulled out a ring
+            And said, "Marry me, Juliet
+            You'll never have to be alone
+            I love you and that's all I really know
+            I talked to your dad, go pick out a white dress
+            It's a love story, baby, just say, "Yes"
+            Oh, oh, oh
+            Oh, oh, oh, oh
+            'Cause we were both young when I first saw you
+            
+        </div>
+    </div>
+
+    <script>
+        // 在這裡添加 JavaScript 代碼
+        function toggleLyrics() {
+            const lyricsContainer = document.getElementById('lyricsContainer');
+            const lyricsButton = document.querySelector('.lyrics-button');
+
+            if (lyricsContainer.style.display === 'none') {
+                lyricsContainer.style.display = 'block';
+                lyricsButton.innerText = '關閉歌詞';
+            } else {
+                lyricsContainer.style.display = 'none';
+                lyricsButton.innerText = '顯示歌詞';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const audioPlayer = document.getElementById('audioPlayer');
+
+            // 自定義功能
+        });
+    </script>
+</body>
+</html>

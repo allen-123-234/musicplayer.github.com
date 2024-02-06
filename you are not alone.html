@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP3 Player</title>
+    <style>
+        /* 在這裡添加 CSS 樣式 */
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .player-container {
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        audio {
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        /* 播放按鈕樣式 */
+        audio::-webkit-media-controls-play-button,
+        audio::-webkit-media-controls-pause-button,
+        audio::-webkit-media-controls-play-button-container,
+        audio::-webkit-media-controls-mute-button,
+        audio::-webkit-media-controls-volume-slider {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        /* 進度條樣式 */
+        input[type="range"] {
+            width: 100%;
+            margin-top: 10px;
+            height: 5px;
+            appearance: none;
+            background-color: #ecf0f1;
+            outline: none;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        input[type="range"]:hover {
+            opacity: 1;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #3498db;
+            cursor: pointer;
+        }
+
+        /* 進度條顏色 */
+        input[type="range"]::-webkit-slider-runnable-track {
+            height: 5px;
+            background-color: #3498db;
+        }
+
+        /* 歌詞按鈕樣式 */
+        .lyrics-button {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="player-container">
+        <audio id="audioPlayer" controls>
+            <source src="Michael Jackson - You Are Not Alone (Official Video).mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+
+        <button class="lyrics-button" onclick="toggleLyrics()">顯示歌詞</button>
+        <div id="lyricsContainer" style="display: none;">
+            <!-- 歌詞內容放在這裡 -->
+            Another day has gone
+            I'm still all alone
+            How could this be?
+            You're not here with me
+            You never said goodbye
+            Someone tell me why
+            Did you have to go?
+            And leave my world so cold
+            Everyday I sit and ask myself
+            How did love slip away?
+            Something whispers in my ear and says
+            That you are not alone
+            I am here with you
+            Though you're far away
+            I am here to stay
+            But you are not alone
+            I am here with you
+            Though we're far apart
+            You're always in my heart
+            But you are not alone
+            'Lone, 'lone
+            Why, 'lone
+            Just the other night
+            I thought I heard you cry
+            Asking me to come
+            And hold you in my arms
+            I can hear your prayers
+            Your burdens I will bear
+            But first I need your hand
+            Then forever can begin
+            Everyday I sit and ask myself
+            How did love slip away?
+            Something whispers in my ear and says
+            That you are not alone
+            I am here with you
+            Though you're far away
+            I am here to stay
+            But you are not alone
+            I am here with you
+            Though we're far apart
+            You're always in my heart
+            But you are not alone
+            Whisper three words and I'll come running
+            And girl you know that I'll be there
+            I'll be there
+            That you are not alone
+            I am here with you
+            Though you're far away
+            I am here to stay
+            But you are not alone
+            I am here with you
+            Though we're far apart
+            You're always in my heart
+            For you are not alone (You are not alone)
+            For I am here with you (I am here with you)
+            Though you're far away (Though you're far away)
+            I am here to stay (You and me)
+            For you are not alone (You're always in my heart)
+            For I am here with you
+            Though we're far apart
+            You're always in my heart
+            For you are not alone
+            Not alone, oh
+            You are not alone
+            You are not alone
+            Say it again
+            You are not alone
+            You are not alone
+            Not alone, not alone
+            If you just reach out for me girl
+            In the morning, in the evening
+            Not alone, not alone
+            You and me
+            Not alone
+            Oh, together, together
+            Gotta stop being alone
+            Gotta stop being alone
+        </div>
+    </div>
+
+    <script>
+        // 在這裡添加 JavaScript 代碼
+        function toggleLyrics() {
+            const lyricsContainer = document.getElementById('lyricsContainer');
+            const lyricsButton = document.querySelector('.lyrics-button');
+
+            if (lyricsContainer.style.display === 'none') {
+                lyricsContainer.style.display = 'block';
+                lyricsButton.innerText = '關閉歌詞';
+            } else {
+                lyricsContainer.style.display = 'none';
+                lyricsButton.innerText = '顯示歌詞';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const audioPlayer = document.getElementById('audioPlayer');
+
+            // 自定義功能
+        });
+    </script>
+</body>
+</html>

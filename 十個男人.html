@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP3 Player</title>
+    <style>
+        /* 在這裡添加 CSS 樣式 */
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .player-container {
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        audio {
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        /* 播放按鈕樣式 */
+        audio::-webkit-media-controls-play-button,
+        audio::-webkit-media-controls-pause-button,
+        audio::-webkit-media-controls-play-button-container,
+        audio::-webkit-media-controls-mute-button,
+        audio::-webkit-media-controls-volume-slider {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        /* 進度條樣式 */
+        input[type="range"] {
+            width: 100%;
+            margin-top: 10px;
+            height: 5px;
+            appearance: none;
+            background-color: #ecf0f1;
+            outline: none;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        input[type="range"]:hover {
+            opacity: 1;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #3498db;
+            cursor: pointer;
+        }
+
+        /* 進度條顏色 */
+        input[type="range"]::-webkit-slider-runnable-track {
+            height: 5px;
+            background-color: #3498db;
+        }
+
+        /* 歌詞按鈕樣式 */
+        .lyrics-button {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="player-container">
+        <audio id="audioPlayer" controls>
+            <source src="黃明志 Ft.陶晶瑩十個男人Weenomenon 2023.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+
+        <button class="lyrics-button" onclick="toggleLyrics()">顯示歌詞</button>
+        <div id="lyricsContainer" style="display: none;">
+            <!-- 歌詞內容放在這裡 -->
+十個男人七個傻
+八個呆 九個壞
+還有一個人人愛
+姐妹們 跳出來
+十個男人七個傻
+八個呆 九個壞
+趕快把他騙過來
+騙過來 騙過來
+薪水全部都歸她
+還有銀行賬戶密碼
+現金和信用卡
+全部都交給她來刷
+每天照三餐問候
+製造驚喜和感動
+手機響三下內接通
+還要自拍打卡監控
+要有比特犬的堅韌
+拉不拉多式的忠誠
+要像西施一樣萌 藏獒一樣猛
+沙皮一樣黏人
+要有提款機的功能
+最好有30公分的小腿
+善解人意
+當個100分好男人
+十個男人七個傻
+八個呆 九個壞
+還有一個人人愛
+姐妹們 跳出來
+十個男人七個傻
+八個呆 九個壞
+趕快把他騙過來
+騙過來 騙過來
+不到廁所偷打電話
+手機不能鎖碼
+生日週年慶要牢記
+別忘蛋糕鮮花
+聖誕節別說很忙
+情人節不能加班
+前女友的事別管
+最好快刪號取關
+不講道理爭辯只要道歉 (it's your bad)
+無理取鬧是女人的特權 (it's your fate)
+我們就想吃隨便
+喝隨便 去隨便
+聽不懂我的語言
+自己上論壇 or 問你姐姐
+十個男人七個傻
+八個呆 九個壞
+還有一個人人愛
+姐妹們 跳出來
+十個男人七個傻
+八個呆 九個壞
+趕快把他騙過來
+騙過來 騙過來
+男人要誠實坦白要講真話
+除了她做的新頭髮
+母湯腰痛坐骨神經疼痛
+控八控控 控八控控
+她不開心就給她贏
+下班不累不累練腹肌
+當她有事沒事你問她說她沒事
+就代表你有事 R.I.P
+姐妹不用淪陷吧
+其實妳很偉大
+沒有什麼好掙扎
+一定不比別人差
+誰要週末待在家
+對著手機里歐巴
+聽著他說的情話
+然後哭得嘩啦啦
+十個男人七個傻
+八個呆 九個壞
+還有一個人人愛
+姐妹們 跳出來
+十個男人七個傻
+八個呆 九個壞
+趕快把他騙過來
+騙過來 騙過來
+十個男人七個傻
+(最棒的男人) 八個呆 九個壞
+(最強的男人) 還有一個人人愛
+(就是我 就是我) 姐妹們 跳出來
+十個男人七個傻
+(最棒的男人) 八個呆 九個壞
+(最強的男人) 趕快把他騙過來
+(就是我 砰嗙叫) 騙過來 騙過來
+最好的男人
+最棒的男人
+最強的男人
+就是我 剩下的那一個
+        </div>
+    </div>
+
+    <script>
+        // 在這裡添加 JavaScript 代碼
+        function toggleLyrics() {
+            const lyricsContainer = document.getElementById('lyricsContainer');
+            const lyricsButton = document.querySelector('.lyrics-button');
+
+            if (lyricsContainer.style.display === 'none') {
+                lyricsContainer.style.display = 'block';
+                lyricsButton.innerText = '關閉歌詞';
+            } else {
+                lyricsContainer.style.display = 'none';
+                lyricsButton.innerText = '顯示歌詞';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const audioPlayer = document.getElementById('audioPlayer');
+
+            // 自定義功能
+        });
+    </script>
+</body>
+</html>
+

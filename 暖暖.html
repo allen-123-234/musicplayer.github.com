@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP3 Player</title>
+    <style>
+        /* 在這裡添加 CSS 樣式 */
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .player-container {
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        audio {
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        /* 播放按鈕樣式 */
+        audio::-webkit-media-controls-play-button,
+        audio::-webkit-media-controls-pause-button,
+        audio::-webkit-media-controls-play-button-container,
+        audio::-webkit-media-controls-mute-button,
+        audio::-webkit-media-controls-volume-slider {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #3498db;
+            color: #fff;
+        }
+
+        /* 進度條樣式 */
+        input[type="range"] {
+            width: 100%;
+            margin-top: 10px;
+            height: 5px;
+            appearance: none;
+            background-color: #ecf0f1;
+            outline: none;
+            opacity: 0.7;
+            transition: opacity 0.2s;
+        }
+
+        input[type="range"]:hover {
+            opacity: 1;
+        }
+
+        input[type="range"]::-webkit-slider-thumb {
+            appearance: none;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background-color: #3498db;
+            cursor: pointer;
+        }
+
+        /* 進度條顏色 */
+        input[type="range"]::-webkit-slider-runnable-track {
+            height: 5px;
+            background-color: #3498db;
+        }
+
+        /* 歌詞按鈕樣式 */
+        .lyrics-button {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="player-container">
+        <audio id="audioPlayer" controls>
+            <source src="梁靜茹-暖暖 MV(480P) - 柏呈昇 (youtube).mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+
+        <button class="lyrics-button" onclick="toggleLyrics()">顯示歌詞</button>
+        <div id="lyricsContainer" style="display: none;">
+            <!-- 歌詞內容放在這裡 -->
+            Wee, huh
+            都可以隨便的 你說的 我都願意去
+            小火車 擺動的旋律
+            都可以是真的 你說的 我都會相信
+            因為我完全信任你
+            細膩的喜歡 毛毯般的厚重感
+            曬過太陽 熟悉的安全感
+            分享熱湯 我們兩支湯匙一個碗
+            左心房 暖暖的好飽滿
+            我想說其實你很好 你自己卻不知道
+            真心的對我好 不要求回報
+            愛一個人 希望他過更好
+            打從心裡暖暖的 你比自己更重要
+            La-la-la-la-la-la-la-la-la (la-la-la)
+            都可以隨便的 你說的 我都願意去
+            回憶裡 滿足的旋律
+            都可以是真的 你說的 我都會相信
+            因為我完全信任你
+            細膩的喜歡 你手掌的厚實感
+            什麼困難 都覺得有希望
+            我哼著歌 你自然的就接下一段
+            我知道 暖暖就在胸膛
+            我想說其實你很好 你自己卻不知道
+            真心的對我好 不要求回報
+            愛一個人 希望他過更好
+            打從心裡暖暖的 你比自己更重要
+            我想說其實你很好 你自己卻不知道
+            從來都很低調 自信心不高
+            愛一個人 希望他過更好
+            打從心裡暖暖的 你比自己更重要
+            你不知道
+            真心的對我好 不要求回報
+            愛一個人 希望他過更好
+            打從心裡暖暖的 你比自己更重要
+            我也希望變更好
+            La-la-la-la-la-la (la-la-la-la)
+        </div>
+    </div>
+
+    <script>
+        // 在這裡添加 JavaScript 代碼
+        function toggleLyrics() {
+            const lyricsContainer = document.getElementById('lyricsContainer');
+            const lyricsButton = document.querySelector('.lyrics-button');
+
+            if (lyricsContainer.style.display === 'none') {
+                lyricsContainer.style.display = 'block';
+                lyricsButton.innerText = '關閉歌詞';
+            } else {
+                lyricsContainer.style.display = 'none';
+                lyricsButton.innerText = '顯示歌詞';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const audioPlayer = document.getElementById('audioPlayer');
+
+            // 自定義功能
+        });
+    </script>
+</body>
+</html>
+
